@@ -1,0 +1,70 @@
+--------------------------------------------------
+--------------------------------------------------
+RSA Encryption
+only share lock key
+
+Open lock share => lock message from other client => recieve to lock key owner => open lock 
+
+
+Alice 
+Encryption key 
+Decrption key
+
+
+Share Encryption key of Alice to Bob.
+
+Bob
+Encryption key of Alice
+encrypt data using Encryption key of Alice
+Send to Alice
+
+Alice decrypt the data using his Decrption key.
+
+
+
+2:24let's do a simplified exampled with colors.
+2:28How could Bob send Alice a specific color,
+2:31without Eve, who is always listening, intercepting it?
+2:35The inverse of some color is called a complimentary color,
+2:40which when added to it, produces white,
+2:45undoing the effect of the first color.
+2:49In this example, we assume that mixing colors
+2:51is a one-way function because it's fast to mix colors
+2:54and output a third, and it's much slower to undo.
+3:01Alice first generates her private key
+3:05by randomly selecting a color, say red.
+3:08Next, assume Alice uses a secret color machine
+3:11to find the exact compliment of her red
+3:14and nobody else has access to this.
+3:17This results in cyan, which she sends to Bob
+3:20as her public key.
+3:23Let's say Bob wants to send a secret yellow to Alice.
+3:26He mixes this with her public color
+3:29and sends the resulting mixture back to Alice.
+3:32Now Alice adds her private color to Bob's mixture.
+3:37This undoes the effect of her public color,
+3:40leaving her with Bob's secret color.
+3:43Notice Eve has no easy way to find Bob's yellow,
+3:45since she needs Alice's private red to do so.
+3:49This is how it should work.
+3:51However, a mathematical solution was needed
+•Current transcript segment: 3:53to make this work in practice.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
