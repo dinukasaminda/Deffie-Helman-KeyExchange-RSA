@@ -1,0 +1,229 @@
+Fundamental theorem of arithmatic
+--------------------------------------
+
+5 = 3+2
+15 = 3+3+3+3+3
+
+25 = 5+5+5+5+5
+
+32 =2x8
+
+like this any compoite number (not prime numbers) can be written
+ as sum of equal prime numbers
+
+some numbers have more than one primes:
+
+30 = 3x10
+30 = 2X15
+30 = 5x6
+
+We can see 2,3 and 5 all can .this known as factorization
+
+we call 2,3,5 are prime factors of 30
+
+if we found all the prime factors of given number then we can
+ create that number from prime factors as below:
+
+ example :
+ 30 = (2^x)*(3^y)*(5^z)
+
+where x,y,z are non negative integers.
+
+in  this case
+x=y=z=1
+
+30 =2x3x5
+
+also we call this, 2x3x5 is prime factorization of 30
+this is unique and no other way to build 30 with using another prime numbers
+
+so every posible numbers has one and only one prime factorization
+
+no  different two numbers share  prime factorizations.
+
+
+Public key cryptograpy
+--------------------------------------
+
+to first share a secret random number, known as a key.
+2:25So how could two people who have never met
+2:27agree on a secret shared key
+2:30without letting Eve, who is always listening,
+2:34also obtain a copy?
+2:37In 1976, Whitfield Diffie & Martin Hellman
+2:41devised an amazing trick to do this.
+2:44First, let's explore how this trick is done using colors.
+2:48How could Alice and Bob agree on a secret color without Eve finding it out?
+2:53The trick is based on two facts:
+2:56one, it's easy to mix two colors together to make a third color; and
+3:02two, given a mixed color, it's hard to reverse it
+3:06in order to find the exact original colors.
+3:10This is the basis for a lock:
+3:12easy in one direction, hard in the reverse direction.
+3:16This is known as a one-way function.
+3:20Now, the solution works as follows:
+3:23First, they agree publicly on a starting color, say yellow.
+3:29Next, Alice and Bob both randomly select private colors,
+3:35and mix them into the public yellow in order to disguise their private colors.
+3:40Now, Alice keeps her private color and sends her mixture to Bob,
+3:46and Bob keeps his private color and sends his mixture to Alice.
+3:53Now, the heart of the trick:
+3:57Alice and Bob add their private colors to the other person's mixture
+4:02and arrive at a shared secret color.
+4:09Notice how Eve is unable to determine this exact color,
+4:13since she needs one of their private colors to do so.
+4:20And that is the trick.
+4:23Now, to do this with numbers, we need a numerical procedure
+4:27which is easy in one direction and hard in the other.
+
+
+one way easy, backway hard
+
+this we call modular arithmatic, or clock arithmatic
+
+example clock modulus
+46 mod 12 = 10 
+how we get 10 ?
+easy  cycle of 12 equal parts of 12 and 46 length of rope wraping rope the cycle we get 10
+12 one cycle, 24 two cycle, 36 three cycles , then we have 10 remining thats the value
+
+4 mod 12 = 4
+10 mod 12 = 10
+12 mod 12 = 12
+13 mod 12 = 1
+15 mod 12 = 3
+
+this result is less than or equal to 12,
+
+
+
+prime modulus:
+ we can select 17  for cycle, then 
+  example 
+  3 mod 17 = 3 
+  3^2 mod 17 = 9
+
+  then we choose x, as:
+  3^x mod 17 = z 
+  then we can find any integer z from 0 to 17 for any of  non negative integer x 
+
+  3^4  mod 17 = 13
+  3^5 mod 17 = 5 
+
+3^16  mod 17 = 1
+
+3 is knows as the generator
+
+and revers procedure is hard,
+say given z=12  and find x its hard
+this is call The discrete logarithm problem
+
+
+
+then we have one way function easy to perform and hard to revers.
+
+and its too hard when we choose big prime number for 17
+
+
+Diffie-hellman key exchange
+----------------------------------------
+----------------------------------------
+
+
+Alice Bob clients problem:
+
+g=3, and p =17 
+
+3^x mod 17  = z
+
+g^x mod p = z
+
+1. we share publicly same values of g and p between  Alice and Bob
+2. Alice get random integer lessthan p  =>> x=aPrivate=15,
+Calculate:
+3^15 mod 17 = 6 = Apub
+
+3. Bob get random integer lessthan p, =>> x=bPrivate=13,
+Calculate:
+3^13 mod 17 = 12 = bPub
+
+Bob public key : bPub=12 => share to Alice
+bPub^aPrivate mod 17 = 12^15 mod 17 = 10
+
+Alice public key : Apub=6 => share to Bob
+Apub^bPrivate mod 17 = 6^13 mod 17 = 10
+
+
+we got same shared key = 10
+we can use this key to encrypt data and decrypt
+
+--------------------------------------------------
+--------------------------------------------------
+RSA Encryption
+only share lock key
+
+Open lock share => lock message from other client => recieve to lock key owner => open lock 
+
+
+Alice 
+Encryption key 
+Decrption key
+
+
+Share Encryption key of Alice to Bob.
+
+Bob
+Encryption key of Alice
+encrypt data using Encryption key of Alice
+Send to Alice
+
+Alice decrypt the data using his Decrption key.
+
+
+
+2:24let's do a simplified exampled with colors.
+2:28How could Bob send Alice a specific color,
+2:31without Eve, who is always listening, intercepting it?
+2:35The inverse of some color is called a complimentary color,
+2:40which when added to it, produces white,
+2:45undoing the effect of the first color.
+2:49In this example, we assume that mixing colors
+2:51is a one-way function because it's fast to mix colors
+2:54and output a third, and it's much slower to undo.
+3:01Alice first generates her private key
+3:05by randomly selecting a color, say red.
+3:08Next, assume Alice uses a secret color machine
+3:11to find the exact compliment of her red
+3:14and nobody else has access to this.
+3:17This results in cyan, which she sends to Bob
+3:20as her public key.
+3:23Let's say Bob wants to send a secret yellow to Alice.
+3:26He mixes this with her public color
+3:29and sends the resulting mixture back to Alice.
+3:32Now Alice adds her private color to Bob's mixture.
+3:37This undoes the effect of her public color,
+3:40leaving her with Bob's secret color.
+3:43Notice Eve has no easy way to find Bob's yellow,
+3:45since she needs Alice's private red to do so.
+3:49This is how it should work.
+3:51However, a mathematical solution was needed
+•Current transcript segment: 3:53to make this work in practice.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
