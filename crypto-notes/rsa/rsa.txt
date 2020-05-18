@@ -51,15 +51,42 @@ Alice decrypt the data using his Decrption key.
 •Current transcript segment: 3:53to make this work in practice.
 
 
+trap door one way function
+----------------------------------------------------------
+
+from clock arithmatic
+
+base^exponent mod modulus = remainder
+Message = m,
+Chiper Text = c 
+
+m^e mod N = c 
+c^d mod N = m 
+
+
+m^(ed) mod N = m 
+
+e => Encryption 
+d => Decrption
+
+
+we need to find N  using,
+prime factorization and take small two prime numbers p1,p2 and multiply both then we have composite number need
+N = p1xp2
+
+
+phi(N) = [p1-1]*[p2-1]
 
 
 
 
+big prime number but its hard to find big prime numbers then we use 
+
+for we can select ed prime number => to extract e,d  as prime factorization of ed its harder when large numbers
+ we can simply  take two prime numbers for  e,d thrn exd  easy to calculate.
 
 
-
-
-
+generaly e,d take 150 digit long prime numbers  p1,p2
 
 
 
